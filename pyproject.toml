@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bili-agent"
+version = "0.6.1"
+description = "Bilibili CLI for agents with JSON output and bounded live events"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE", "NOTICE.md"]
+dependencies = ["bilibili-api-python==17.4.2", "aiohttp>=3.8,<4", "qrcode[pil]>=7.4,<9"]
+
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+]
+
+[project.urls]
+Repository = "https://github.com/MusuOS/bili-agent"
+Issues = "https://github.com/MusuOS/bili-agent/issues"
+Documentation = "https://github.com/MusuOS/bili-agent/blob/main/docs/IMPLEMENTATION.md"
+
+[project.optional-dependencies]
+dev = ["build>=1.2,<2", "twine>=6,<7"]
+
+[project.scripts]
+bili-agent = "bili_agent.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.data-files]
+"share/bili-agent/docs" = ["docs/AGENT_GUIDE.md", "docs/IMPLEMENTATION.md"]
